@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace efcore_7._0._10;
 
@@ -28,10 +27,8 @@ public class IssueDbContext : DbContext
             .HasPrecision(8, 5)
             .HasColumnType("NUMBER(8,5)");
 
-        var boolToZeroOneConverter = new BoolToZeroOneConverter<int>();
-
         issueBuilder.Property(i => i.IsDeleted)
-            .HasConversion(boolToZeroOneConverter)
+            .HasConversion<int>() // THIS IS CAUSING AN ISSUE WHEN TRYING TO ADD ANOTHER MIGRATION
             .HasColumnName("IS_DELETED")
             .HasDefaultValue(false)
             .HasPrecision(1)

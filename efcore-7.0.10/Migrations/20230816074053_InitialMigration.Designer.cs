@@ -11,7 +11,7 @@ using efcore_7._0._10;
 namespace efcore_7._0._10.Migrations
 {
     [DbContext(typeof(IssueDbContext))]
-    [Migration("20230816072655_InitialMigration")]
+    [Migration("20230816074053_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
