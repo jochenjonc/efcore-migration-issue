@@ -23,9 +23,7 @@ public class IssueDbContext : DbContext
             .HasColumnName("NAME");
 
         issueBuilder.Property(i => i.Weight)
-            .HasColumnName("WEIGHT")
-            .HasPrecision(8, 5)
-            .HasColumnType("NUMBER(8,5)");
+            .HasColumnName("WEIGHT");
 
         issueBuilder.Property(i => i.IsDeleted)
             .HasConversion<int>() // THIS IS CAUSING AN ISSUE WHEN TRYING TO ADD ANOTHER MIGRATION
